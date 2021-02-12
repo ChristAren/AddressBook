@@ -8,8 +8,9 @@ namespace AddressBook.Models
 {
     public class Overview
     {
-        [Key]
         public int Id { get; set; }
+
+        public string UserId { get; set; }
 
         [Required]
         [StringLength(30, ErrorMessage = "The {0} must be at least {2} and no more than {1} characters long.", MinimumLength = 2)]
@@ -30,14 +31,17 @@ namespace AddressBook.Models
         public string WorkEmail { get; set; }
 
         [Required]
+        [Phone]
         [Display(Name = "Mobile Phone")]
-        public PhoneAttribute MobilePhone { get; set; }
+        public string MobilePhone { get; set; }
 
+        [Phone]
         [Display(Name = "Work Phone")]
-        public PhoneAttribute WorkPhone { get; set; }
+        public string WorkPhone { get; set; }
 
+        [Phone]
         [Display(Name = "Home Phone")]
-        public PhoneAttribute HomePhone { get; set; }
+        public string HomePhone { get; set; }
 
         [Display(Name = "Address 1")]
         [StringLength(30, ErrorMessage = "The {0} must be at least {2} and no more than {1} characters long.", MinimumLength = 2)]
